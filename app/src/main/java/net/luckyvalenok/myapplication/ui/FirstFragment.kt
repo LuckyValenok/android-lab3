@@ -6,12 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import net.luckyvalenok.myapplication.MainApplication
-import net.luckyvalenok.myapplication.R
 import net.luckyvalenok.myapplication.databinding.FirstFragmentBinding
 import net.luckyvalenok.myapplication.domain.data.CardType
 import javax.inject.Inject
@@ -35,13 +32,6 @@ class FirstFragment : Fragment() {
 
         binding.items.apply {
             layoutManager = LinearLayoutManager(context)
-            addItemDecoration(
-                CardAdapter.SpacesItemDecoration(
-                    context,
-                    DividerItemDecoration.VERTICAL,
-                    resources.getDimensionPixelSize(R.dimen.default_padding)
-                )
-            )
             adapter = cardAdapter
         }
 

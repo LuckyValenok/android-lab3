@@ -1,8 +1,6 @@
 package net.luckyvalenok.myapplication.ui
 
-import android.content.Context
 import android.graphics.Color
-import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +8,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -83,16 +80,6 @@ class CardAdapter : ListAdapter<CardType, CardAdapter.CardViewHolder>(CardDiffUt
 
         override fun areContentsTheSame(oldItem: CardType, newItem: CardType): Boolean {
             return oldItem == newItem
-        }
-    }
-
-    class SpacesItemDecoration(context: Context, orientation: Int, private val space: Int) :
-        DividerItemDecoration(context, orientation) {
-        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-            outRect.left = space
-            outRect.right = space
-            outRect.bottom = space
-            outRect.top = if (parent.getChildLayoutPosition(view) == 0) space else 0
         }
     }
 }
