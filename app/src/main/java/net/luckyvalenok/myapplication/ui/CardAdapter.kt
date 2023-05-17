@@ -1,4 +1,4 @@
-package net.luckyvalenok.myapplication
+package net.luckyvalenok.myapplication.ui
 
 import android.content.Context
 import android.graphics.Color
@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import net.luckyvalenok.myapplication.R
+import net.luckyvalenok.myapplication.domain.data.CardType
 
 class CardAdapter : ListAdapter<CardType, CardAdapter.CardViewHolder>(CardDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder =

@@ -1,18 +1,19 @@
 package net.luckyvalenok.myapplication.di
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Component
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
-import net.luckyvalenok.myapplication.FirstFragment
-import net.luckyvalenok.myapplication.MainViewModel
-import net.luckyvalenok.myapplication.network.CardApi
-import net.luckyvalenok.myapplication.network.IRepository
-import net.luckyvalenok.myapplication.network.Repository
-import net.luckyvalenok.myapplication.usecase.GetCardsUseCase
-import net.luckyvalenok.myapplication.usecase.IGetCardsUseCase
+import net.luckyvalenok.myapplication.domain.api.CardApi
+import net.luckyvalenok.myapplication.domain.repository.Repository
+import net.luckyvalenok.myapplication.domain.repository.RepositoryImpl
+import net.luckyvalenok.myapplication.domain.usecases.getCards.GetCardsUseCase
+import net.luckyvalenok.myapplication.domain.usecases.getCards.GetCardsUseCaseImpl
+import net.luckyvalenok.myapplication.ui.FirstFragment
+import net.luckyvalenok.myapplication.ui.MainViewModel
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -25,6 +26,9 @@ interface AppComponent {
 
 @Module
 abstract class ViewModelModule {
+    @Binds
+    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+
     @Binds
     @IntoMap
     @ViewModelKey(MainViewModel::class)
@@ -47,9 +51,9 @@ abstract class NetworkModule {
 
     @Binds
     @Singleton
-    abstract fun repository(repository: Repository): IRepository
+    abstract fun bindRepository(repositoryImpl: RepositoryImpl): Repository
 
     @Binds
     @Singleton
-    abstract fun getCardsUseCase(useCase: GetCardsUseCase): IGetCardsUseCase
+    abstract fun bindGetCardsUseCase(useCase: GetCardsUseCaseImpl): GetCardsUseCase
 }

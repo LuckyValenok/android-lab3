@@ -1,6 +1,6 @@
-package net.luckyvalenok.myapplication.network
+package net.luckyvalenok.myapplication.domain.api
 
-import net.luckyvalenok.myapplication.CardInfo
+import net.luckyvalenok.myapplication.domain.data.CardInfo
 import retrofit2.Response
 import retrofit2.http.GET
 

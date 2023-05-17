@@ -1,4 +1,4 @@
-package net.luckyvalenok.myapplication
+package net.luckyvalenok.myapplication.domain.data
 
 import com.google.gson.annotations.SerializedName
 
